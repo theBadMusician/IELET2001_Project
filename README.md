@@ -4,4 +4,4 @@ Work Project in IELET2001 (Computer Communications) at NTNU, Trondheim. The Proj
 
 ![Project Systems Architecture](https://github.com/theBadMusician/IELET2001_Project/blob/master/project_assets/Project_systems_architecture.png)
 
-The Node.js server is hosted on a Raspberry Pi 3B+ which tranceives its data using Python based API, and then stores it in a remote Firebase database. The Server must be able to bi-directionally communicate  with a ESP32 MCU node to control and monitor its peripheries. The system is controlled and monitored using web and mobile front-end platforms. 
+The Node.js server is hosted on a Raspberry Pi 3B+ which tranceives its data using Python based API, and then stores it in a remote Firebase database. The Server must be able to bi-directionally communicate with a ESP32 MCU node (written in C++ with Arduino lib) to control and monitor its peripheries (sensors, control mechanisms). The system is controlled and monitored using web (HTML/CSS/JS & maybe React) and mobile (Swift iOS and Java Android) front-end platforms. 
