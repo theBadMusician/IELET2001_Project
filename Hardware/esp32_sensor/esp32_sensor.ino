@@ -31,14 +31,14 @@ void event(const char * payload, size_t length) {
 
 void sendSensorData(){
     // Sends the sensor reading from the ESP32 to the server. 
-    char sensorData[10];
-    itoa(analogRead(sensorPin), sensorData, 10); // converts the sensorreading to a char array and puts it in sensorData
+    char sensorData[10]; // char array for storing the sensor reading
+    itoa(analogRead(sensorPin), sensorData, 10); // converts the sensor reading to a char array and puts it in sensorData
     socket.emit("Data-from-mcu",sensorData);
 }
 
 
 void changeSensorDelay(const char * newDelay, size_t length){ 
-    // Sets a new delay between each sensor reading. Takes a delay from the server in seconds and converts it to millisecconds.
+    // Sets a new delay between each sensor reading. Takes a delay from the server in seconds and converts it to milliseconds.
     String newDelayString(newDelay); // converts the char array from the server into a string
     int newDelayInt = newDelayString.toInt(); // converts the string to an int
     sensorDelay = newDelayInt*1000;
