@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "NodeJS server for MCUniversity project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theBadMusician/MCUniversity.git"
+  },
+  "keywords": [
+    "node",
+    "mcu",
+    "microcontroller",
+    "server",
+    "communications",
+    "networking",
+    "react",
+    "website",
+    "client",
+    "full-stack",
+    "back-end",
+    "front-end"
+  ],
+  "author": "Benjaminas Visockis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theBadMusician/MCUniversity/issues"
+  },
+  "homepage": "https://github.com/theBadMusician/MCUniversity#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "events": "^3.2.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "fs": "0.0.1-security",
+    "geoip-lite": "^1.4.2",
+    "gitlog": "^4.0.3",
+    "node-cleanup": "^2.1.2",
+    "node-uuid": "^1.4.8",
+    "nodemailer": "^6.4.16",
+    "sass": "^1.29.0",
+    "socket.io": "^2.3.0",
+    "systeminformation": "^4.30.1"
+  }
+}
