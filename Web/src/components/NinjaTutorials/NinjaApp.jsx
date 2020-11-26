@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Ninjas from './Ninjas'
-import AddNinja from './AddNinja'
+import Ninjas from './components/NinjaTutorials/Ninjas'
+import AddNinja from './components/NinjaTutorials/AddNinja'
 import SocketIO from './SocketIO';
 
 class App extends Component {
@@ -12,18 +12,36 @@ class App extends Component {
     ]
   }
   addNinja = (ninja) => {
-    ninja.id = Math.round(Math.random() * 1000);
+    ninja.id = Math.floor(Math.random() * 100000);
     this.setState(prevState => ({
         ninjas: [...prevState.ninjas, ninja]
     }));
     console.log(ninja);
   }
+  deleteNinja = (id) => {
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id
+    })
+    this.setState({
+      ninjas: ninjas
+    })
+  }
+
+componentDidMount() {
+  console.log("component mounted");
+}
+
+componentDidUpdate(prevProps, prevState) {
+  console.log('component updated');
+  console.log(prevProps, prevState);
+}
+
   render() {
     return (
       <div className="App">
         <h1>My first React app</h1>
         <SocketIO />
-        <Ninjas ninjas={this.state.ninjas}/>
+        <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/>
         <AddNinja addNinja={this.addNinja} />
       </div>
     );

@@ -4,11 +4,11 @@
   "description": "NodeJS server for MCUniversity project using Express MVC framework and React/Redux front-end",
   "private": true,
   "scripts": {
-    "pc-dev-server": "set NODE_ENV=development&& node ./bin/www",
+    "pc-dev-server": "set NODE_ENV=development&& nodemon --watch ./ --ignore ./node_modules ./bin/www",
     "pc-dist-server": "set NODE_ENV=production&& set PORT=80&& node ./bin/www",
     "bash-dev-server": "NODE_ENV=development node ./bin/www",
     "bash-dist-server": "NODE_ENV=production PORT=80 node ./bin/www",
-    "dev-server": "nodemon .bin/www",
+    "dev-server": "nodemon ./bin/www",
     "bash-client": "cd ../Web && npm run bash-start",
     "pc-client": "cd ../Web && npm run pc-start",
     "bash-build-dist-and-run": "cd ../Web && npm run build && cd ../Server && npm run bash-dist-server",
@@ -30,7 +30,8 @@
     "http-errors": "^1.8.0",
     "jade": "~1.11.0",
     "morgan": "^1.10.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "ws": "^7.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

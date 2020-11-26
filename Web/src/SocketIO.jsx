@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import socketIOClient from "socket.io-client"
-const ENDPOINT = "http://78.156.12.136:80"
+const ENDPOINT = process.env.NODE_ENV === 'production' ? 'http://78.156.12.136:80' : 'http://78.156.12.136:3000';
 
 function SocketIO() {
     const [response, setResponse] = useState("");
@@ -13,7 +12,6 @@ function SocketIO() {
 
       socket.on("FromAPI", data => {
         setResponse(data);
-        console.log(data);
       });
     }, []);
   
