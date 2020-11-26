@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class API extends Component {
   state = {
     data: null
   };
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default API;

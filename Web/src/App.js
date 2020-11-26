@@ -1,42 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Ninjas from './Ninjas'
+import AddNinja from './AddNinja'
+import SocketIO from './SocketIO';
 
 class App extends Component {
   state = {
-    data: null
-  };
-
-  componentDidMount() {
-    fetch("/api/customers")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-          console.log(result.id1);
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+    ninjas: [
+      { name: 'Ryu', age: 30, belt: 'black', id: 1 },
+      { name: 'Yoshi', age: 20, belt: 'green', id: 2 },
+      { name: 'Crystal', age: 25, belt: 'pink', id: 3 }
+    ]
   }
-
-
+  addNinja = (ninja) => {
+    ninja.id = Math.round(Math.random() * 1000);
+    this.setState(prevState => ({
+        ninjas: [...prevState.ninjas, ninja]
+    }));
+    console.log(ninja);
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        // Render the newly fetched data inside of this.state.data 
-        <p className="App-intro">{this.state.data}</p>
+        <h1>My first React app</h1>
+        <SocketIO />
+        <Ninjas ninjas={this.state.ninjas}/>
+        <AddNinja addNinja={this.addNinja} />
       </div>
     );
   }

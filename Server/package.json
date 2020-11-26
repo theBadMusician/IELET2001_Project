@@ -1,50 +1,38 @@
 {
-  "name": "server",
+  "name": "api",
   "version": "1.0.0",
-  "description": "NodeJS server for MCUniversity project",
-  "main": "server.js",
+  "description": "NodeJS server for MCUniversity project using Express MVC framework and React/Redux front-end",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "pc-dev-server": "set NODE_ENV=development&& node ./bin/www",
+    "pc-dist-server": "set NODE_ENV=production&& set PORT=80&& node ./bin/www",
+    "bash-dev-server": "NODE_ENV=development node ./bin/www",
+    "bash-dist-server": "NODE_ENV=production PORT=80 node ./bin/www",
+    "dev-server": "nodemon .bin/www",
+    "bash-client": "cd ../Web && npm run bash-start",
+    "pc-client": "cd ../Web && npm run pc-start",
+    "bash-build-dist-and-run": "cd ../Web && npm run build && cd ../Server && npm run bash-dist-server",
+    "pc-build-dist-and-run": "cd ../Web && npm run build && cd ../Server && npm run pc-dist-server",
+    "debug-server": "DEBUG=Server:* npm run dev-server",
+    "bash-start-all-dev": "concurrently \"npm run bash-dev-server\" \"npm run bash-client\"",
+    "pc-start-all-dev": "concurrently \"npm run pc-dev-server\" \"npm run pc-client\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theBadMusician/MCUniversity.git"
   },
-  "keywords": [
-    "node",
-    "mcu",
-    "microcontroller",
-    "server",
-    "communications",
-    "networking",
-    "react",
-    "website",
-    "client",
-    "full-stack",
-    "back-end",
-    "front-end"
-  ],
-  "author": "Benjaminas Visockis",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theBadMusician/MCUniversity/issues"
-  },
-  "homepage": "https://github.com/theBadMusician/MCUniversity#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^3.1.5",
-    "events": "^3.2.0",
+    "concurrently": "^5.3.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^4.3.1",
     "express": "^4.17.1",
-    "formidable": "^1.2.2",
-    "fs": "0.0.1-security",
-    "geoip-lite": "^1.4.2",
-    "gitlog": "^4.0.3",
-    "node-cleanup": "^2.1.2",
-    "node-uuid": "^1.4.8",
-    "nodemailer": "^6.4.16",
-    "sass": "^1.29.0",
-    "socket.io": "^2.3.0",
-    "systeminformation": "^4.30.1"
+    "http-errors": "^1.8.0",
+    "jade": "~1.11.0",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

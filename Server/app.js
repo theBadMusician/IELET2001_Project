@@ -6,7 +6,7 @@ const logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var APIRouter = require('./routes/ServerAPI');
+var apiRouter = require('./routes/client-api');
 
 var app = express();
 
@@ -20,28 +20,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 if (app.get('env') == 'development') {
-  // This will change in production since we'll be using the dist folder
-  console.log(path.join(__dirname, '../client/public'));
-  app.use(express.static(path.join(__dirname, '../client/public')));
-  // This covers serving up the index page
-  app.use(express.static(path.join(__dirname, '../client/src/App')));
-  app.use(express.static(path.join(__dirname, '../client/src')));
+  app.use(express.static(path.join(__dirname, '../Web/public')));
+  app.use(express.static(path.join(__dirname, '../Web/src')));
 }
 
 else if (app.get('env') == 'production') {
   // changes it to use the optimized version for production
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../Web/build')));
 }
-
-else if (app.get('env') == 'test') {
-  // changes it to use the optimized version for production
-  app.use(express.static(path.join(__dirname, './public')));
-}
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api', APIRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
