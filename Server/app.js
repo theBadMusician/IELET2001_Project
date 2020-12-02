@@ -3,21 +3,28 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const fs = require('fs');
 
+var apiRouter = require('./routes/client-api');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var apiRouter = require('./routes/client-api');
 
 var app = express();
 
-app.use(logger('dev'));
+if (process.env.NODE_ENV === 'production') {
+  const logFile = './access.log';
+  console.log("Production build server -- logging to file: " + logFile);
+  app.use(logger('combined', {
+    stream: fs.createWriteStream(logFile, {flags: 'a'})
+  }));
+}
+app.use(logger('combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 if (app.get('env') == 'development') {
   app.use(express.static(path.join(__dirname, '../Web/public')));
-  app.use(express.static(path.join(__dirname, '../Web/src')));
 }
 
 else if (app.get('env') == 'production') {
@@ -25,9 +32,10 @@ else if (app.get('env') == 'production') {
   app.use(express.static(path.join(__dirname, '../Web/build')));
 }
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api', apiRouter);
+app.use('/users', usersRouter);
+app.use('/', indexRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
