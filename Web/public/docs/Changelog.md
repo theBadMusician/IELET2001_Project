@@ -1,3 +1,14 @@
+#### Added React front-end website w/ logos, gitlog, and mobile app skeleton.
+
+> 2020-12-02 14:44:10 +0100
+
+<p><a href="https://github.com/theBadMusician/MCUniversity/commit/5e7d33b66c6c4e4a5fe64d2a92ec5786edefc08f "target="_blank" >Commit 5e7d33b66c6c4e4a5fe64d2a92ec5786edefc08f on Github</a></p>
+
+<p><a href="https://github.com/theBadMusician/MCUniversity/tree/5e7d33b66c6c4e4a5fe64d2a92ec5786edefc08f "target="_blank" >Repo at the time of commit</a></p>
+
+---
+
+
 #### Added some struct.
 
 > 2020-11-27 01:00:00 +0100

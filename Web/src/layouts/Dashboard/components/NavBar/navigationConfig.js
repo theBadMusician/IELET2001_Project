@@ -11,6 +11,7 @@ import ErrorIcon from '@material-ui/icons/ErrorOutline';
 import FolderIcon from '@material-ui/icons/FolderOutlined';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 import ListAltIcon from '@material-ui/icons/ListAlt';
+import InfoIcon from '@material-ui/icons/Info';
 import LockOpenIcon from '@material-ui/icons/LockOpenOutlined';
 import MailIcon from '@material-ui/icons/MailOutlined';
 import Description from '@material-ui/icons/Description';
@@ -52,8 +53,8 @@ export default [
         icon: BarChartIcon,
         children: [
           {
-            title: 'Customers',
-            href: '/management/customers'
+            title: 'Microcontrollers',
+            href: '/management/microcontrollers'
           },
           {
             title: 'Customer Details',
@@ -236,6 +237,11 @@ export default [
   {
     title: 'About',
     pages: [
+      {
+        title: 'About MCU',
+        href: '/about',
+        icon: InfoIcon
+      },
       {
         title: 'Getting started',
         href: '/getting-started',

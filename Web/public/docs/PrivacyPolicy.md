@@ -1,3 +1,5 @@
+<img src="../images/mcu-logos/mcuniversity-black.png"  width="100%"><br>
+
 <h1>Privacy Policy of MCUniversity</h1>
 
 <p>MCUniversity operates the mcuniversity.online website, which provides remote development and learning service.</p>

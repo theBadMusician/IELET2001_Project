@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Button, TextField } from '@material-ui/core';
 
 import useRouter from 'utils/useRouter';
-import { login } from 'actions';
+import { SESSION_LOGIN } from 'store/actions';
 
 const schema = {
   email: {
@@ -82,7 +82,7 @@ const LoginForm = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    // dispatch(login());
+    dispatch(SESSION_LOGIN());
     router.history.push('/');
   };
 

@@ -7,8 +7,7 @@ import {
   CardMedia,
   Typography,
   Divider,
-  Link,
-  Avatar
+  Link  
 } from '@material-ui/core';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 
@@ -68,13 +67,6 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     margin: theme.spacing(2, 0)
-  },
-  person: {
-    marginTop: theme.spacing(2),
-    display: 'flex'
-  },
-  avatar: {
-    marginRight: theme.spacing(2)
   }
 }));
 
@@ -96,7 +88,7 @@ const Register = () => {
             Sign up
           </Typography>
           <Typography variant="subtitle2">
-            Sign up on the internal platform
+            Sign up on the platform
           </Typography>
           <RegisterForm className={classes.registerForm} />
           <Divider className={classes.divider} />
@@ -113,37 +105,30 @@ const Register = () => {
         </CardContent>
         <CardMedia
           className={classes.media}
-          image="/images/auth.png"
+          image="/images/other/MCU-stock-photo.jpg"
           title="Cover"
         >
           <Typography
             color="inherit"
             variant="subtitle1"
           >
-            Hella narvwhal Cosby sweater McSweeney's, salvia kitsch before they
-            sold out High Life.
+            "There are only two types of programming languages: 
+            Those people bitch about, and those nobody uses."
           </Typography>
-          <div className={classes.person}>
-            <Avatar
-              alt="Person"
-              className={classes.avatar}
-              src="/images/avatars/avatar_2.png"
-            />
             <div>
               <Typography
                 color="inherit"
                 variant="body1"
               >
-                Ekaterina Tankova
+                Bjarne Stroustrup
               </Typography>
               <Typography
                 color="inherit"
                 variant="body2"
               >
-                Manager at inVision
+                Inventor of C++
               </Typography>
             </div>
-          </div>
         </CardMedia>
       </Card>
     </Page>

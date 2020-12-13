@@ -7,8 +7,7 @@ import {
   CardMedia,
   Typography,
   Divider,
-  Link,
-  Avatar
+  Link
 } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
 
@@ -68,13 +67,6 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     margin: theme.spacing(2, 0)
-  },
-  person: {
-    marginTop: theme.spacing(2),
-    display: 'flex'
-  },
-  avatar: {
-    marginRight: theme.spacing(2)
   }
 }));
 
@@ -96,7 +88,7 @@ const Login = () => {
             Sign in
           </Typography>
           <Typography variant="subtitle2">
-            Sign in on the internal platform
+            Sign in to the MCUniversity
           </Typography>
           <LoginForm className={classes.loginForm} />
           <Divider className={classes.divider} />
@@ -113,37 +105,29 @@ const Login = () => {
         </CardContent>
         <CardMedia
           className={classes.media}
-          image="/images/auth.png"
+          image="/images/other/MCU-stock-photo.jpg"
           title="Cover"
         >
           <Typography
             color="inherit"
             variant="subtitle1"
           >
-            Hella narvwhal Cosby sweater McSweeney's, salvia kitsch before they
-            sold out High Life.
+            "Code is like humor. When you have to explain it, it’s bad."
           </Typography>
-          <div className={classes.person}>
-            <Avatar
-              alt="Person"
-              className={classes.avatar}
-              src="/images/avatars/avatar_2.png"
-            />
             <div>
               <Typography
                 color="inherit"
                 variant="body1"
               >
-                Ekaterina Tankova
+                Cory House
               </Typography>
               <Typography
                 color="inherit"
                 variant="body2"
               >
-                Manager at inVision
+                React, Node.js Engineer
               </Typography>
             </div>
-          </div>
         </CardMedia>
       </Card>
     </Page>

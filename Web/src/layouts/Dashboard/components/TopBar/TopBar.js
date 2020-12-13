@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
+import { useSelector, connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
@@ -31,7 +32,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import axios from 'utils/axios';
 import useRouter from 'utils/useRouter';
 import { PricingModal, NotificationsPopover } from 'components';
-import { logout } from 'actions';
+import { SESSION_LOGIN, SESSION_LOGOUT } from 'store/actions';
 
 
 const useStyles = makeStyles(theme => ({
@@ -106,6 +107,7 @@ const TopBar = props => {
   const [searchValue, setSearchValue] = useState('');
   const [notifications, setNotifications] = useState([]);
   const [openNotifications, setOpenNotifications] = useState(false);
+  const session = useSelector(state => state.session);
 
   useEffect(() => {
     let mounted = true;
@@ -136,6 +138,11 @@ const TopBar = props => {
   }, []);
 
   const handleLogout = () => {
+    history.push('/auth/login');
+    // dispatch(logout());
+  };
+
+  const handleLogin = () => {
     history.push('/auth/login');
     // dispatch(logout());
   };
@@ -171,6 +178,34 @@ const TopBar = props => {
   const handleSearchPopverClose = () => {
     setOpenSearchPopover(false);
   };
+
+  const DisplayLoginOutBtn = () => {
+    console.log(session);
+    if (session.loggedIn) {
+      return (
+        <Button
+        className={classes.logoutButton}
+        color="inherit"
+        onClick={handleLogout}
+      >
+        <InputIcon className={classes.logoutIcon} />
+        Sign out
+      </Button>
+      )
+    }
+    else {
+      return (
+        <Button
+        className={classes.loginButton}
+        color="inherit"
+        onClick={handleLogin}
+      >
+        <InputIcon className={classes.logoutIcon} />
+        Sign in
+      </Button>
+      )
+    }
+  }
 
   const popularSearches = [
     'Dashboard',
@@ -259,14 +294,7 @@ const TopBar = props => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <Button
-            className={classes.logoutButton}
-            color="inherit"
-            onClick={handleLogout}
-          >
-            <InputIcon className={classes.logoutIcon} />
-            Sign out
-          </Button>
+          <DisplayLoginOutBtn />
         </Hidden>
         <Hidden lgUp>
           <IconButton

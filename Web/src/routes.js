@@ -64,6 +64,11 @@ const routes = [
     component: DashboardLayout,
     routes: [
       {
+        path: '/about',
+        exact: true,
+        component: lazy(() => import('views/AboutMCU'))
+      },
+      {
         path: '/calendar',
         exact: true,
         component: lazy(() => import('views/Calendar'))
@@ -94,6 +99,11 @@ const routes = [
         component: DashboardDefaultView
       },
       {
+        path: '/getting-started',
+        exact: true,
+        component: lazy(() => import('views/GettingStarted'))
+      },
+      {
         path: '/invoices/:id',
         exact: true,
         component: lazy(() => import('views/InvoiceDetails'))
@@ -109,7 +119,7 @@ const routes = [
         component: lazy(() => import('views/Mail'))
       },
       {
-        path: '/management/customers',
+        path: '/management/microcontrollers',
         exact: true,
         component: lazy(() => import('views/CustomerManagementList'))
       },
@@ -142,6 +152,11 @@ const routes = [
         path: '/overview',
         exact: true,
         component: OverviewView
+      },
+      {
+        path: '/privacy-policy',
+        exact: true,
+        component: lazy(() => import('views/PrivacyPolicy'))
       },
       {
         path: '/profile/:id',
@@ -187,16 +202,6 @@ const routes = [
         path: '/social-feed',
         exact: true,
         component: lazy(() => import('views/SocialFeed'))
-      },
-      {
-        path: '/getting-started',
-        exact: true,
-        component: lazy(() => import('views/GettingStarted'))
-      },
-      {
-        path: '/privacy-policy',
-        exact: true,
-        component: lazy(() => import('views/PrivacyPolicy'))
       },
       {
         component: () => <Redirect to="/errors/error-404" />
